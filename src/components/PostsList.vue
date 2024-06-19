@@ -7,11 +7,10 @@
 
 <script>
 import SinglePost from "./SinglePost";
+
 export default {
   components: { SinglePost },
   props: ["home_posts"],
-
-  setup(props) {},
 };
 </script>
 
