@@ -1,18 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Hello Composition Api</h1>
+
+    <PostsList :home_posts="posts"></PostsList>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import PostsList from "../components/PostsList";
+import { ref } from "vue";
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  components: { PostsList },
+  setup() {
+    let posts = ref([]);
+  },
+};
 </script>
