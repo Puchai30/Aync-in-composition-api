@@ -7,12 +7,8 @@
     <textarea required v-model="body"></textarea>
 
     <label>Tags(hit enter to add a tags)</label>
-    <input
-      required
-      type="text"
-      v-model="tag"
-      @keydown.enter.prevent="handleKeyDown"
-    />
+    <input type="text" v-model="tag" @keydown.enter.prevent="handleKeyDown" />
+
     <div v-for="tag in tags" :key="tag" class="pill">
       {{ tag }}
     </div>
