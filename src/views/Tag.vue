@@ -9,7 +9,7 @@
         <PostsList :home_posts="filterPosts"></PostsList>
       </div>
       <div>
-        <TagCloud></TagCloud>
+        <TagCloud :home_posts="posts"></TagCloud>
       </div>
     </div>
     <div v-else>Loading . . .</div>

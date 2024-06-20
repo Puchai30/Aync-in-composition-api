@@ -4,25 +4,25 @@
       "id": "5ba6",
       "title": "Laravel",
       "body": "Laravel",
-      "tags": [
-        "laravel"
-      ]
+      "tags": ["laravel"]
     },
     {
       "id": "6193",
       "title": "Vue JS",
       "body": "Vue",
-      "tags": [
-        "vue"
-      ]
+      "tags": ["vue"]
     },
     {
       "id": "557f",
       "title": "Tailwind CSS",
       "body": "Tailwind ",
-      "tags": [
-        "tailwind"
-      ]
+      "tags": ["tailwind"]
+    },
+    {
+      "id": "0fd3",
+      "title": "Web Devlopment",
+      "body": "Vue js",
+      "tags": ["vue"]
     }
   ]
 }
