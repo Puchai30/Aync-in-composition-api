@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <h1>Hello Composition Api</h1>
-
     <div v-if="error">
       {{ error }}
     </div>

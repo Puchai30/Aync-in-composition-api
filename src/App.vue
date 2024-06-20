@@ -1,6 +1,15 @@
 <template>
+  <Nabar></Nabar>
   <router-view />
 </template>
+
+<script>
+import Nabar from "./components/Nabar";
+
+export default {
+  components: { Nabar },
+};
+</script>
 
 <style>
 #app {
