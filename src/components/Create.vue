@@ -23,6 +23,7 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -30,6 +31,8 @@ export default {
     let body = ref("");
     let tag = ref("");
     let tags = ref([]);
+    let router = useRouter();
+    // console.log(router);
 
     let handleKeyDown = () => {
       if (!tags.value.includes(tag.value)) {
@@ -50,6 +53,7 @@ export default {
           tags: tags.value,
         }),
       });
+      router.push("/");
     };
 
     return { title, body, tag, tags, handleKeyDown, addPost };

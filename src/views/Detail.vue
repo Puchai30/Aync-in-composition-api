@@ -10,14 +10,18 @@
 </template>
 
 <script>
+import { useRoute } from "vue-router";
 import Loading from "../components/Loading";
 import getPost from "../composables/getPost";
 
 export default {
   components: { Loading },
   props: ["id"],
+
   setup(props) {
-    let { post, error, load } = getPost(props.id);
+    let route = useRoute();
+    // console.log(route.params.id);
+    let { post, error, load } = getPost(route.params.id);
     load();
     return { post, error };
   },
