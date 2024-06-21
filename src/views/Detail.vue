@@ -2,6 +2,7 @@
   <div v-if="post" class="post">
     <h3>{{ post.title }}</h3>
     <p>{{ post.body }}</p>
+    <button class="delete" @click="deletePost">Delete</button>
   </div>
 
   <div v-else>
@@ -10,9 +11,10 @@
 </template>
 
 <script>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import Loading from "../components/Loading";
 import getPost from "../composables/getPost";
+import { db } from "../firebase/config";
 
 export default {
   components: { Loading },
@@ -20,10 +22,18 @@ export default {
 
   setup(props) {
     let route = useRoute();
+    let router = useRouter();
     // console.log(route.params.id);
     let { post, error, load } = getPost(route.params.id);
     load();
-    return { post, error };
+
+    let deletePost = async () => {
+      let id = props.id;
+      await db.collection("posts").doc(id).delete();
+      router.push("/");
+    };
+
+    return { post, error, deletePost };
   },
 };
 </script>
@@ -62,5 +72,8 @@ export default {
   padding: 8px;
   border-radius: 20px;
   font-size: 14px;
+}
+button.delete {
+  margin: 30px auto;
 }
 </style>
