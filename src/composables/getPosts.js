@@ -1,4 +1,5 @@
 import { ref } from "vue";
+import { db } from "../firebase/config";
 
 let getPosts = () => {
   let posts = ref([]);
@@ -6,16 +7,13 @@ let getPosts = () => {
 
   let load = async () => {
     try {
-      // await new Promise((resolve, reject) => {
-      //   // resolve()
-      //   setTimeout(resolve, 2000);
-      // });
-      let response = await fetch("http://localhost:3000/posts");
-      if (response.status === 404) {
-        throw new Error("Url Not Found");
-      }
-      let datas = await response.json();
-      posts.value = datas;
+      let res = await db.collection("posts").get();
+      posts.value = res.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+        // console.log(doc.id);
+        // console.log(doc.data());
+      });
+      // console.log(res.docs);
     } catch (err) {
       error.value = err;
       // console.log(err.message);
