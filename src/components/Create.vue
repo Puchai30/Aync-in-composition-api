@@ -20,7 +20,7 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { db } from "../firebase/config";
+import { db, timestap } from "../firebase/config";
 
 export default {
   setup() {
@@ -43,6 +43,7 @@ export default {
         title: title.value,
         body: body.value,
         tags: tags.value,
+        created_at: timestap(),
       };
       let res = await db.collection("posts").add(newPost);
       // console.log(res);
